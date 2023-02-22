@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News App</title>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>NEWS APP</h1>
+        <h2>NEWS APP</h2>
     </header>
     <form>
-        <input type="text" id="search-input" placeholder="Enter your News">
+        <input type="text" id="search-input" placeholder="Find your News">
         <button id="search-button" type="submit">Search</button>
         <!-- <select id="country-name">
             <option value="in">🇮🇳</option>
@@ -22,8 +22,14 @@
             <option value="ru">ru</option>
         </select> -->
     </form>
+    <div id="searchNews-container">
+        <h1 id="search-Header"></h1>
+        <ul id="searchNews-list" class="snaps-inline">
+    </div>
+    
     <div id="headline-container">
-        <ul id="headline-list">
+        <h1>Top HeadLine</h1>
+        <ul id="headline-list" class="snaps-inline">
     </div>
     <script src="script.js"></script>
 </body>
