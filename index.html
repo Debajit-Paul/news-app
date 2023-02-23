@@ -12,24 +12,15 @@
     <header>
         <h2>NEWS APP</h2>
     </header>
-    <form>
-        <input type="text" id="search-input" placeholder="Find your News">
-        <button id="search-button" type="submit">Search</button>
-        <!-- <select id="country-name">
-            <option value="in">🇮🇳</option>
-            <option value="us">us</option>
-            <option value="uk">uk</option>
-            <option value="ru">ru</option>
-        </select> -->
-    </form>
-    <div id="searchNews-container">
-        <h1 id="search-Header"></h1>
-        <ul id="searchNews-list" class="snaps-inline">
-    </div>
-    
-    <div id="headline-container">
-        <h1>Top HeadLine</h1>
-        <ul id="headline-list" class="snaps-inline">
+
+    <div class="container">
+        
+        <h1 style="display: inline;">Top HeadLine</h1>
+        <button class="handle right-handle"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+        <button class="handle left-handle"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></button>
+        <div id="headline-container" class="snaps-inline">
+            <ul id="headline-list" ></ul>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
