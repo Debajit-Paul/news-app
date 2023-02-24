@@ -1,4 +1,4 @@
-// API key : 597932d351b44a3b95ee56a78489f7a6
+// API key : 5d0ec0a57c5b64f209d5df23097e67c9
 
 const headlinecontainer = document.getElementById("headline-container");
 const headlineList = document.getElementById("headline-list");
@@ -18,7 +18,7 @@ window.onload = () => {
         }
     })
     .then(data => {
-        console.log(data);
+        // console.log(data);
         showNews(data.articles)
     })
   }
@@ -35,7 +35,7 @@ window.onload = () => {
         // create <div></div>
         let newDiv = document.createElement("div");
         newDiv.className = "news"
-        newDiv.style.background = `url("${news.urlToImage}")rgba(0,0,0,0.7)`;
+        newDiv.style.background = `url("${news.image}")rgba(0,0,0,0.7)`;
         newDiv.style.backgroundSize = "cover";
         newsList.appendChild(newDiv);
         let newsHeading = document.createElement("h4");
@@ -55,7 +55,7 @@ window.onload = () => {
   
 
   const getTopHeadline = () =>{
-    let url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=597932d351b44a3b95ee56a78489f7a6";
+    let url = `https://gnews.io/api/v4/top-headlines?category=general&apikey=5d0ec0a57c5b64f209d5df23097e67c9&lang=en`;
     fetchNews(url,TopHeadline);
   }
 
