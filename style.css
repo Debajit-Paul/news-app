@@ -132,6 +132,7 @@
 /* news tab */
 .tabs {
     overflow: auto;
+    margin: 0;
 }
 
 .tab-header {
