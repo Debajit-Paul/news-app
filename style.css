@@ -74,9 +74,13 @@
     }
 }
 
-@media (max-width: 625px){
+@media (max-width: 750px){
     #headline-container .news-item {
         min-width: 48%;
+    }
+
+    .handle {
+        display: none;
     }
 } 
 
