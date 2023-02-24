@@ -130,3 +130,12 @@ window.onload = () => {
       slider.style.setProperty("--slider-index", sliderIndex + 1);
     }
   }
+
+  var wrap =$("#wrap");
+  wrap.on("scroll",function(e){
+    if(this.scrollTop > 14){
+      wrap.addClass("fix-tab-header");
+    }else{
+      wrap.removeClass("fix-tab-header")
+    }
+  })

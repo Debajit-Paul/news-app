@@ -131,17 +131,20 @@
 
 /* news tab */
 .tabs {
-    overflow: auto;
     max-width: 100%;
     margin: 0;
 }
 
 .tab-header {
-    height: 30px;
+    position: sticky;
+    top: 0;
+    height: 4.3rem;
+    background-color: white;
     display: flex;
     align-items: center;
     transition: all 0.5s ease;
 }
+
 
 .tabs .tab-header > div {
     width: calc(100% / 4);
@@ -152,7 +155,6 @@
     font-size: 14px;
     text-transform: uppercase;
     outline: none;
-    margin-bottom: 1.5rem;
 }
 
 .tabs .tab-header > div.active {
@@ -160,11 +162,14 @@
 }
 
 .tab-indicator {
+    position: sticky;
+    top: 4rem;
     width: calc(100% /4);
     height: 5px;
     background: #00acee;
     left: 0px;
     border-radius: 5px;
+    transition: all 0.5s ease;
 }
 
 .tab-body {
