@@ -86,6 +86,7 @@
     color: whitesmoke;
     text-decoration: none;
     transition: all 0.7s ease;
+    outline: none;
 }
 
 .slider-Read-button:hover {
@@ -225,6 +226,7 @@
     text-decoration: none;
     transition: transform 0.7s ease;
     cursor: pointer;
+    outline: none;
 }
 
 .news-Read-button:hover {
