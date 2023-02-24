@@ -165,7 +165,7 @@
 .tab-indicator {
     position: sticky;
     top: 4rem;
-    width: calc(100% /4.75);
+    width: calc(100% /4);
     height: 5px;
     background: #00acee;
     left: 0px;
