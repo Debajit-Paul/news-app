@@ -148,7 +148,7 @@
 
 
 .tabs .tab-header > div {
-    width: calc(100% / 4);
+    width: calc(100% / 3);
     text-align: center;
     color: #888;
     font-weight: 600;
@@ -165,7 +165,7 @@
 .tab-indicator {
     position: sticky;
     top: 4rem;
-    width: calc(100% /4);
+    width: calc(100% /4.75);
     height: 5px;
     background: #00acee;
     left: 0px;
