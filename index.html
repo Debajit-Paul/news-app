@@ -10,16 +10,28 @@
 </head>
 <body>
     <header>
-        <h2>NEWS APP</h2>
+        <h2 style="font-family: 'Tilt Prism', cursive; font-size: 4rem;">NEWS HUB</h2>
     </header>
 
-    <div class="container">
-        
+    <div class="headline-section">
         <h1 style="display: inline;">Top HeadLine</h1>
         <button class="handle right-handle"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
         <button class="handle left-handle"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></button>
         <div id="headline-container" class="snaps-inline">
-            <ul id="headline-list" ></ul>
+            <ul id="headline-slider" ></ul>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab-header">
+            <div class="active">Science</div>
+            <div>sports</div>
+            <div>Politics</div>
+            <div>Entertainment</div>
+        </div>
+        <div class="tab-indicator"></div>
+        <div class="tab-body">
+            <ul id="news-container"></ul>
         </div>
     </div>
     <script src="script.js"></script>

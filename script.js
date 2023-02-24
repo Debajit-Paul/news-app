@@ -1,10 +1,13 @@
 // API key : 5d0ec0a57c5b64f209d5df23097e67c9
 
-const headlinecontainer = document.getElementById("headline-container");
-const headlineList = document.getElementById("headline-list");
+const headlineSlider = document.getElementById("headline-slider");
+const activeNews = document.querySelector(".active").innerText
+const newsContainer = document.getElementById("news-container");
 
 window.onload = () => {
     getTopHeadline();
+    // console.log(activeNews);
+    getNews(activeNews);
   }
 
 
@@ -18,45 +21,90 @@ window.onload = () => {
         }
     })
     .then(data => {
-        // console.log(data);
+        console.log(data);
         showNews(data.articles)
     })
   }
 
 
-  const TopHeadline = (data) =>{
+  const TopHeadline = (data) => {
 
     for(let news of data){
         // create <li></li>
         let newsList = document.createElement("li");
-        newsList.classList.add("news-item");
-        headlineList.appendChild(newsList);
+        newsList.classList.add("slider-List");
+        headlineSlider.appendChild(newsList);
 
         // create <div></div>
-        let newDiv = document.createElement("div");
-        newDiv.className = "news"
-        newDiv.style.background = `url("${news.image}")rgba(0,0,0,0.7)`;
-        newDiv.style.backgroundSize = "cover";
-        newsList.appendChild(newDiv);
+        let newsDiv = document.createElement("div");
+        newsDiv.className = "slider-News"
+        newsDiv.style.background = `url("${news.image}")rgba(0,0,0,0.7)`;
+        newsDiv.style.backgroundSize = "cover";
+        newsList.appendChild(newsDiv);
         let newsHeading = document.createElement("h4");
-        newsHeading.className = "news-heading";
+        newsHeading.className = "slider-News-heading";
         newsHeading.innerText = `${news.title}`;
-        newDiv.appendChild(newsHeading);
+        newsDiv.appendChild(newsHeading);
         
         // create read more button
         let readBtn = document.createElement("a");
-        readBtn.className = "read-button"
+        readBtn.className = "slider-Read-button"
         readBtn.href = `${news.url}`;
         readBtn.innerHTML = 'Learn more <i class="fa fa-long-arrow-right" aria-hidden="true"></i>';
-        newDiv.appendChild(readBtn);
+        newsDiv.appendChild(readBtn);
+    }
+  }
+
+  const News =(data) => {
+    for(let news of data){
+      // create <li></li>
+      let newsList = document.createElement("li");
+      newsList.classList.add("news");
+      
+      // create <div></div>
+      let newsDiv = document.createElement("div");
+      newsDiv.classList.add("news-Div");
+      
+      
+      // create <img>
+      let newsImg = document.createElement("img");
+      newsImg.classList.add("news-Image");
+      newsImg.src = `${news.image}`;
+      
+      
+      // create <h4></h4>
+      let newsHeading = document.createElement("h4");
+      newsHeading.classList.add("news-Heading");
+      newsHeading.innerText = `${news.title}`;
+      
+      
+      // create read more button
+      let readBtn = document.createElement("a");
+      readBtn.className = "news-Read-button"
+      readBtn.href = `${news.url}`;
+      readBtn.innerHTML = 'Learn more <i class="fa fa-long-arrow-right" aria-hidden="true"></i>';
+      
+
+      newsContainer.appendChild(newsList);
+      newsList.appendChild(newsImg);
+      newsList.appendChild(newsDiv);
+      newsDiv.appendChild(newsHeading);
+      newsDiv.appendChild(readBtn);
     }
   }
 
   
 
   const getTopHeadline = () =>{
-    let url = `https://gnews.io/api/v4/top-headlines?category=general&apikey=5d0ec0a57c5b64f209d5df23097e67c9&lang=en`;
+    let url = `https://gnews.io/api/v4/top-headlines?category=general&apikey=5d0ec0a57c5b64f209d5df23097e67c9&lang=en&country=in`;  // Real API
+    // let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=597932d351b44a3b95ee56a78489f7a6`;  // Test API
     fetchNews(url,TopHeadline);
+  }
+
+  const getNews = (activeNews) => {
+    let url = `https://gnews.io/api/v4/search?q=${activeNews}&apikey=5d0ec0a57c5b64f209d5df23097e67c9`; // Real API
+    // let url = `https://newsapi.org/v2/top-headlines?q=${activeNews}&apiKey=597932d351b44a3b95ee56a78489f7a6`;  // Test API
+    fetchNews(url,News);
   }
 
   document.addEventListener("click", e =>{
@@ -72,18 +120,13 @@ window.onload = () => {
   })
 
   function onHandleClick(handle) {
-    // const slider = handle.closest(".container").querySelector("#headline-container").querySelector("headline-list");
-    const slider = document.querySelector("#headline-list");
-    // console.log(document.querySelector("#headline-list"));
+    const slider = document.querySelector("#headline-slider");
     const sliderIndex = parseInt(getComputedStyle(slider).getPropertyValue("--slider-index"));
     if(handle.classList.contains("left-handle")){
       slider.style.setProperty("--slider-index", sliderIndex - 1);
       console.log(getComputedStyle(slider).getPropertyValue("--slider-index"));
-      // slider.style.transform = `translateX(cal(var(${sliderIndex - 1}) * -100%))`;
-      // console.log(slider.style.transform = `translateX(cal(var(${sliderIndex - 1}) * -100%))`);
     }
     if(handle.classList.contains("right-handle")){
-      // slider.style.transform = `translateX(cal(var(${sliderIndex + 1}) * -100%))`;
       slider.style.setProperty("--slider-index", sliderIndex + 1);
     }
   }
