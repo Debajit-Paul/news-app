@@ -1,8 +1,11 @@
 // API key : 5d0ec0a57c5b64f209d5df23097e67c9
 
 const headlineSlider = document.getElementById("headline-slider");
-const activeNews = document.querySelector(".active").innerText
+const activeNews = document.querySelector(".active").innerText;
 const newsContainer = document.getElementById("news-container");
+const tabs = document.querySelectorAll(".tab-header > div");
+const tabBody = document.querySelectorAll(".news-container");
+const tabIndicator = document.querySelector(".tab-indicator");
 
 window.onload = () => {
     getTopHeadline();
@@ -26,6 +29,7 @@ window.onload = () => {
     })
   }
 
+//  Data Display 
 
   const TopHeadline = (data) => {
 
@@ -56,6 +60,10 @@ window.onload = () => {
   }
 
   const News =(data) => {
+    while(newsContainer.hasChildNodes()){
+      newsContainer.removeChild(newsContainer.firstChild);
+    }
+
     for(let news of data){
       // create <li></li>
       let newsList = document.createElement("li");
@@ -93,7 +101,22 @@ window.onload = () => {
     }
   }
 
+// Tab functionality
+
+  tabs.forEach((tab) =>{
+    tab.addEventListener("click", e =>{
+      tabs.forEach((tab) =>{
+        tab.classList.remove("active");
+      });
+      e.currentTarget.classList.add("active");
+      const activeNews = document.querySelector(".active").innerText;
+      getNews(activeNews);
+      tabIndicator.style.marginLeft = `calc(calc(100% / 4) * ${e.currentTarget.id})`;
+    })
+  })
+
   
+// Fetch request
 
   const getTopHeadline = () =>{
     let url = `https://gnews.io/api/v4/top-headlines?category=general&apikey=5d0ec0a57c5b64f209d5df23097e67c9&lang=en&country=in`;  // Real API
@@ -106,6 +129,9 @@ window.onload = () => {
     // let url = `https://newsapi.org/v2/top-headlines?q=${activeNews}&apiKey=597932d351b44a3b95ee56a78489f7a6`;  // Test API
     fetchNews(url,News);
   }
+
+
+// Sliding Button
 
   document.addEventListener("click", e =>{
     let handle;
@@ -130,12 +156,3 @@ window.onload = () => {
       slider.style.setProperty("--slider-index", sliderIndex + 1);
     }
   }
-
-  var wrap =$("#wrap");
-  wrap.on("scroll",function(e){
-    if(this.scrollTop > 14){
-      wrap.addClass("fix-tab-header");
-    }else{
-      wrap.removeClass("fix-tab-header")
-    }
-  })
