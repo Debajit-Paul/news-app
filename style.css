@@ -62,7 +62,7 @@
     flex-direction: column;
     justify-content:end;
     font-size:x-large; 
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease-in-out;
     cursor: pointer;
 }
 
@@ -85,7 +85,7 @@
     margin: 0 1rem 1.5rem 1rem ;
     color: whitesmoke;
     text-decoration: none;
-    transition: all 0.7s ease;
+    transition: all 0.7s ease-in-out;
     outline: none;
 }
 
@@ -114,18 +114,19 @@
     margin: 0.25rem;
     width: var(--slider-padding);
     height: var(--slider-padding);
-    background-color: gainsboro;
+    background-color: #3A60DA;
+    color: whitesmoke;
     font-size: 1.5rem;
     border: none;
     border-radius: 2rem;
     z-index: 10;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease-in-out;
     cursor: pointer;
 }
 
 .handle:hover {
-    background-color: rgb(0, 0, 0,0.5);
-    color:whitesmoke;
+    background-color: #3a45da;
+    color: whitesmoke;
     transform: scale(1.1);
 }
 
@@ -139,11 +140,11 @@
 .tab-header {
     position: sticky;
     top: 0;
-    height: 4.3rem;
+    height: 4rem;
     background-color: white;
     display: flex;
     align-items: center;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-in-out;
 }
 
 
@@ -153,29 +154,30 @@
     color: #888;
     font-weight: 600;
     cursor: pointer;
-    font-size: 14px;
+    font-size: larger;
     text-transform: uppercase;
     outline: none;
 }
 
 .tabs .tab-header > div.active {
-    color: #00acee;
+    color: #3A60DA;
+    outline: none;
 }
 
 .tab-indicator {
     position: sticky;
-    top: 4rem;
+    top: 3.7rem;
     width: calc(100% /4);
     height: 5px;
-    background: #00acee;
+    background: #3A60DA;
     left: 0px;
     border-radius: 5px;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-in-out;
 }
 
 .tab-body {
     max-width: 100%;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-in-out;
 
 }
 
@@ -192,11 +194,11 @@
     padding: 1rem;
     background: #f5f5f5;
     border-radius: 50px;
-    box-shadow: 5px 10px 5px #ccc;
+    box-shadow: 5px 10px 5px #DAEEFF;
     max-width: 100%;
     align-items: center;
     justify-content: flex-start;   
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-in-out;
 }
 
 .news-Div {
@@ -205,7 +207,7 @@
     max-width: 50%;
     align-items: flex-start;
     justify-content: center;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-in-out;
 }
 
 .news-Image {
@@ -213,7 +215,7 @@
     /* aspect-ratio: 10 / 16; */
     border: 1px solid rgb(73, 73, 73);
     border-radius: 1rem;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-in-out;
 }
 
 .news-Read-button {
@@ -224,7 +226,7 @@
     border: 1px solid black;
     color: black;
     text-decoration: none;
-    transition: transform 0.7s ease;
+    transition: transform 0.7s ease-in-out;
     cursor: pointer;
     outline: none;
 }

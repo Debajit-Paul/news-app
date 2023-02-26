@@ -13,7 +13,6 @@ window.onload = () => {
     getNews(activeNews);
   }
 
-
   const fetchNews = (url,showNews) => {
     fetch(url)
     .then(response => {
@@ -42,7 +41,7 @@ window.onload = () => {
         // create <div></div>
         let newsDiv = document.createElement("div");
         newsDiv.className = "slider-News"
-        newsDiv.style.background = `url("${news.image}")rgba(0,0,0,0.7)`;
+        newsDiv.style.background = `url("${news.image}")rgba(0,0,0,0.6)`;
         newsDiv.style.backgroundSize = "cover";
         newsList.appendChild(newsDiv);
         let newsHeading = document.createElement("h4");
@@ -111,7 +110,7 @@ window.onload = () => {
       e.currentTarget.classList.add("active");
       const activeNews = document.querySelector(".active").innerText;
       getNews(activeNews);
-      tabIndicator.style.marginLeft = `calc(calc(100% / 4) * ${e.currentTarget.id})`;
+      tabIndicator.style.marginLeft = `calc(calc(100% / 4) * calc(${e.currentTarget.id}))`;
     })
   })
 
@@ -119,13 +118,13 @@ window.onload = () => {
 // Fetch request
 
   const getTopHeadline = () =>{
-    let url = `https://gnews.io/api/v4/top-headlines?category=general&apikey=5d0ec0a57c5b64f209d5df23097e67c9&lang=en&country=in`;  // Real API
+    let url = `https://gnews.io/api/v4/top-headlines?category=general&apikey=5d0ec0a57c5b64f209d5df23097e67c9&lang=en`;  // Real API
     // let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=597932d351b44a3b95ee56a78489f7a6`;  // Test API
     fetchNews(url,TopHeadline);
   }
 
   const getNews = (activeNews) => {
-    let url = `https://gnews.io/api/v4/search?q=${activeNews}&apikey=5d0ec0a57c5b64f209d5df23097e67c9`; // Real API
+    let url = `https://gnews.io/api/v4/search?q=${activeNews}&apikey=5d0ec0a57c5b64f209d5df23097e67c9&lang=en`; // Real API
     // let url = `https://newsapi.org/v2/top-headlines?q=${activeNews}&apiKey=597932d351b44a3b95ee56a78489f7a6`;  // Test API
     fetchNews(url,News);
   }
